@@ -1,0 +1,173 @@
+\documentclass[a4paper]{article} 
+
+%% Language and font encodings 
+\usepackage[english]{babel} 
+\usepackage[utf8x]{inputenc} 
+\usepackage[T1]{fontenc} 
+
+%% Sets page size and margins 
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry} 
+
+%% Useful packages 
+\usepackage{amsmath} 
+\usepackage{graphicx} 
+\usepackage[colorinlistoftodos]{todonotes} 
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} 
+
+\title{Your Paper} 
+\author{You} 
+
+\begin{document} 
+Problem 5.40 How low can you go?
+Investigate the accuracy of the approximation
+pi/2
+−pi/2
+(cos t)
+n dt ≈
+	pi
+n, (5.52)
+for small n, including n = 1.
+Problem 5.41 Closed form
+To evaluate the integral
+pi/2
+−pi/2
+(cos t)
+100 dt (5.53)
+in closed form, use the following steps:
+a. Replace cos t with (eit + e−it)
+
+2.
+b. Use the binomial theorem to expand the 100th power.
+c. Pair each term like eikt with a counterpart e−ikt; then integrate their sum
+from −pi/2 to pi/2. What value or values of k produce a sum whose integral
+is nonzero?
+5.6 Summary and further problems
+Upon meeting a complicated problem, divide it into a big part—the most
+important effect—and a correction. Analyze the big part first, and worry
+about the correction afterward. This successive-approximation approach,
+a species of divide-and-conquer reasoning, gives results automatically
+in a low-entropy form. Low-entropy expressions admit few plausible
+alternatives; they are therefore memorable and comprehensible. In short,
+approximate results can be more useful than exact results.
+Problem 5.42 Large logarithm
+What is the big part in ln(1+e2)? Give a short calculation to estimate ln(1+e2)
+to within 2%.
+Problem 5.43 Bacterial mutations
+In an experiment described in a Caltech biology seminar in the 1990s, researchers
+repeatedly irradiated a population of bacteria in order to generate mutations. In
+each round of radiation, 5% of the bacteria got mutated. After 140 rounds,
+roughly what fraction of bacteria were left unmutated? (The seminar speaker
+gave the audience 3 s to make a guess, hardly enough time to use or even find
+a calculator.)
+98 5 Taking out the big part
+Problem 5.44 Quadratic equations revisited
+The following quadratic equation, inspired by [29], describes a very strongly
+damped oscillating system.
+s2 + 109s + 1 = 0. (5.54)
+a. Use the quadratic formula and a standard calculator to find both roots of the
+quadratic. What goes wrong and why?
+b. Estimate the roots by taking out the big part. (Hint: Approximate and solve
+the equation in appropriate extreme cases.) Then improve the estimates using
+successive approximation.
+c. What are the advantages and disadvantages of the quadratic-formula analysis
+versus successive approximation?
+Problem 5.45 Normal approximation to the binomial distribution
+The binomial expansion
+1
+2 +
+1
+2
+2n
+(5.55)
+contains terms of the form
+f(k) ≡
+ 2n
+n − k
+
+2−2n, (5.56)
+where k = −n...n. Each term f(k) is the probability of tossing n − k heads
+(and n + k tails) in 2n coin flips; f(k) is the so-called binomial distribution
+with parameters p = q = 1/2. Approximate this distribution by answering the
+following questions:
+a. Is f(k) an even or an odd function of k? For what k does f(k) have its
+maximum?
+b. Approximate f(k) when k  n and sketch f(k). Therefore, derive and explain
+the normal approximation to the binomial distribution.
+c. Use the normal approximation to show that the variance of this binomial
+distribution is n/2.
+Problem 5.46 Beta function
+The following integral appears often in Bayesian inference:
+f(a, b) = 1
+0
+xa(1 − x)
+b dx, (5.57)
+where f(a − 1, b − 1) is the Euler beta function. Use street-fighting methods to
+conjecture functional forms for f(a, 0), f(a, a), and, finally, f(a, b). Check your
+conjectures with a high-quality table of integrals or a computer-algebra system
+such as Maxima.
+6
+Analogy
+6.1 Spatial trigonometry: The bond angle in methane 99
+6.2 Topology: How many regions? 103
+6.3 Operators: Euler–MacLaurin summation 107
+6.4 Tangent roots: A daunting transcendental sum 113
+6.5 Bon voyage 121
+When the going gets tough, the tough lower their standards. This idea,
+the theme of the whole book, underlies the final street-fighting tool of
+reasoning by analogy. Its advice is simple: Faced with a difficult problem,
+construct and solve a similar but simpler problem—an analogous problem.
+Practice develops fluency. The tool is introduced in spatial trigonometry
+(Section 6.1); sharpened on solid geometry and topology (Section 6.2);
+then applied to discrete mathematics (Section 6.3) and, in the farewell
+example, to an infinite transcendental sum (Section 6.4).
+6.1 Spatial trigonometry: The bond angle in methane
+The first analogy comes from spatial trigonometry. In
+methane (chemical formula CH4), a carbon atom sits at
+the center of a regular tetrahedron, and one hydrogen
+atom sits at each vertex. What is the angle between
+two carbon–hydrogen bonds?
+Angles in three dimensions are hard to visualize. Try, for
+example, to imagine and calculate the angle between two faces of a regular
+tetrahedron. Because two-dimensional angles are easy to visualize, let’s
+construct and analyze an analogous planar molecule. Knowing its bond
+angle might help us guess methane’s bond angle.
+100 6 Analogy
+Should the analogous planar molecule have four or three hydrogens?
+Four hydrogens produce four bonds which, when spaced
+regularly in a plane, produce two different bond angles. In
+contrast, methane contains only one bond angle. Therefore,
+using four hydrogens alters a crucial feature of the original
+problem. The likely solution is to construct the analogous
+planar molecule using only three hydrogens.
+Three hydrogens arranged regularly in a plane create only
+angle in methane! One data point, however, is a thin reed
+on which to hang a prediction for higher dimensions. The
+single data point for two dimensions (d = 2) is consistent with numerou
+(60d or much else.
+0 Selecting a reasonable conjecture requires gathering further
+data. Easily available data comes from an even simpler yet
+analogous problem: the one-dimensional, linear molecule
+CH2. Its two hydrogens sit opposite one another, so the
+two C–H bonds form an angle of 0 = 180.
+Based on the accumulated data, what are reasonable conjectures for the threedimensional
+angle 03?
+d 0d
+1 180
+2 120
+3 ?
+The one-dimensional molecule eliminates the conjecture that
+0d = (60d). It also suggests new conjectures—for example,
+that 0d = (240 − 60d or 0d = 360/(d + 1. Testing these
+conjectures is an ideal task for the method of easy cases.
+The easy-cases test of higher diensions (high d) refutes the
+conjecture that 0d = (240 − 60d. For high d, it predicts
+implausible bond angles—namely, 0 = 0 for d = 4 and 0<0 for d>4.
+Fortunately, the second suggestion, 0d = 360/(d + 1), passes the same
+easy-cases test. Let’s continue to test it by evaluating its prediction for
+methane—namely, 03 = 90. Imagine then a big brother of methane: a
+CH6 molecule with carbon at the center of a cube and six hydrogens at the
+face centers. Its small bond angle is 90. (The other bond angle is 180.)
+Now remove two hydrogens to turn CH6 into CH4, evenly spreading out
+the remaining four hydrogens. Reducing the crowding raises the small
+bond angle above 90—and refutes the prediction that 03 = 90.
+\end{document}
