@@ -1,37 +1,26 @@
 #include <stdio.h>
-#include <locale.h>
+#include <stdlib.h>
 
-
-main(int argc, char * argv[] )
+void copy(char *c,char *x)
 {
-	setlocale(0, "russian");
-	if (argc != 3)
-	{
-		printf("До свидания!");
-			exit(1);
-	}
-	FILE *syrs;
-	FILE *sors;
-	long fsize;
-	char * buffer;
-	syrs = fopen(argv[1], "rb");
-	if (syrs == NULL)
-	{
-		printf("До свидания!");
-		exit(1);
-	}
-	fseek(syrs, 0, SEEK_END);
-	fsize = ftell(syrs);
-	rewind(syrs);
-
-	buffer = (char *)malloc(fsize);
-	fread(buffer, 1, fsize, syrs);
-	sors = fopen(argv[2], "wb");
-	
-	fwrite(buffer, 1, fsize, sors);
-
-	fclose(sors);
-	fclose(syrs);
-	free(buffer);
-	return 0;
+        FILE *C,*X;
+        C=fopen(c,"r");
+        X=fopen(x,"w");
+        char i;
+        while((i=fgetc(C))!=EOF)
+        {
+                fputc(i,X);
+        }
 }
+
+int main()
+{
+        char a[1000],b[1000];
+        printf("Введите путь к расположению файла который копируют(Для примера C:\\Wunted\\file1.txt)");
+        gets(a);
+        printf("Введите расположение файла куда копировать (Для примера C:\\Wunted\\file2.txt)");
+        gets(b);
+        copy(a,b);
+        printf("Готово");
+        return 0;
+ }
