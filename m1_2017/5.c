@@ -1,20 +1,18 @@
 #include <stdio.h>
-#include <locale.h>
+#include <math.h>
 
 int main()
 {
-	setlocale(0, "russian");
-	float C, F, t1, t2, m;
-	printf("Укажите диапозон в формате t1-t2 и шаг m: ");
-	scanf("%f-%f %f", &t1, &t2, &m);
-	C = t1;
-	do
-	{
-		F = (1.8*C) + 32;
-		printf("%f\t %f\n", C, F);
-		C = C + m;
-	} while (C <= t2);
-
-		
-	return 0;
+    float t1,t2,s=0.0;
+    printf("Введите диапазон в формате t1-t2 и шаг:\n");
+    scanf("%f-%f, %f", &t1, &t2, &s);
+    float l=(fabs(t2-t1))/s;
+    float c = t1;
+    do{
+        float f=1.8*c+32;
+        printf("C|%.2f|%.2f|F\n", c, f);
+        c+=l;
+    }while (c<t2);
+    printf("C|%.2f|%.2f|F\n", t2 ,1.8*t2+32 );
+    return 0;
 }
