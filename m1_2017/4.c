@@ -1,16 +1,14 @@
 #include <stdio.h>
-
-#define swap(t, x, y) {t=y; y=x; x=t;}
+#define swap(t,x,y) ({t a = x; x = y; y = a;})
 
 int main()
 {
-	int a, b, c;
-	printf("x = ");
-	scanf("%i", &a);
-	printf("y = ");
-	scanf("%i", &b);
-	swap(c, a, b);
-	printf("\n%i, %i\n", a, b);
-
-	return 0;
+    int x, y;
+    printf("Vvedite x:\n", x);
+    scanf("%d", &x);
+    printf("Vvedite y:\n", y);
+    scanf("%d", &y);
+    swap(float,x,y);
+    printf("%d %d\n", x ,y);
+    return 0;
 }
