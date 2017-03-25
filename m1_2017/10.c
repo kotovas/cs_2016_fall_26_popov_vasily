@@ -1,20 +1,20 @@
-#include <stdio.h
-#include <locale.h>
+#include <stdio.h>
 
 unsigned int rightrot(unsigned int x,unsigned int n)
 {
-	for(unsigned int i = 0; i < n; i++) 
-		__asm ror x, 1
-	return x;
+    return (x>>n);
 }
 
 int main()
 {
-	setlocale(0, "russian");
+
 	unsigned int x, n;
-	printf("Введите значение x и количество разрядов n: ");
-	scanf("%u %u", &x, &n);
+	printf("Vvedi x: ");
+	scanf("%i",&x);
+	printf("Vvedi n:");
+    scanf("%u", &n);
 	x = rightrot(x, n);
-	printf("%u\n", x);
+	printf("%u", x);
+
 	return 0;
 }
