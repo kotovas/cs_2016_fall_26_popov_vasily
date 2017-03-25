@@ -2,38 +2,35 @@
 #include <locale.h>
 
 
-double binom(double * mas, int a)
+double razni(double * m, int len)
 {
-	double d, z;
+	double x,y;
 	int i;
-	d = mas[0];
-	for (i = 0; i < a; i++)
-	{
-		if (d < mas[i])
-			d = mas[i];
+	x = m[0];
+	for (i = 0;i<len;i++)
+	{	if(x<m[i])
+        x = m[i];
 	}
-	z = mas[0];
-	for (i = 0; i < a; i++)
-	{
-		if (z > mas[i])
-			z = mas[i];
+    y=m[0];
+	for (i=0;i<len;i++)
+	{	if(y>m[i])
+        y=m[i];
 	}
-	return d - z;
+	return x - y;
 }
 
 int main()
 {
-	setlocale(0, "russian");
-	int a, i;
-	double d;
-	printf("Введите количество символов в массиве: ");
-	scanf("%i", &a);
-	double * mas = (double *)malloc(a*8);
-	printf("Введите свой массив: ");
-	for (i = 0; i < a; i++)
-		scanf("%lf", &mas[i]);
-	d = binom(mas, a);
-	printf("Разность между наибольшим и наименьшим значениями: %lf\n", d);
-	free(mas);
+	setlocale(LC_CTYPE, "Russian");
+	int len, i;
+	double raz;
+	printf("Число элементов: ");
+	scanf("%i", &len);
+	double * m = (double *)malloc(len*8);
+	printf("Введите свой массив,через Enter: ");
+	for (i = 0; i < len; i++)
+		scanf("%lf", &m[i]);
+	raz = razni(m, len);
+	printf("Разность между наибольшим и наименьшим значениями: %lf\n", raz);
 	return 0;
 }
