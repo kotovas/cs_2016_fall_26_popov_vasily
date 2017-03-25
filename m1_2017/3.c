@@ -1,13 +1,16 @@
 #include <stdio.h>
+#include <locale.h>
+int main() {
 
-int main()
-{
-	setlocale(0, "russian");
-	float a, b, y, z, d, k;
-	printf("Введите значения сопротивлений в виде a+bi y+zi: ");
-	scanf("%f+%fi %f+%fi", &a, &b, &y, &z);
-	d = (a*a*y + a*y*y + a*z*z + b*b*y) / ((a + y)*(a + y) + (b + z)*(b + z));
-	k = (a*a*z + b*b*z + b*y*y + b*z*z) / ((a + y)*(a + y) + (b + z)*(b + z));
-	printf("Ответ: %.4f+%.4fi", d, k);
+    setlocale(LC_CTYPE, "Russian");
+	float x,y,a,b,c,d;
+	printf("Введите числа в СТАНДАРТНОЙ ФОРМЕ.При наличии отрицательного мнимого элемента вводить:a+-bi\n ");
+	printf("Введите число в формате a+bi\n ");
+	scanf("%f+%fi", &x, &y);
+	printf("Введите число в формате a+bi\n ");
+	scanf("%f+%fi", &a, &b);
+	c = (x*x*a+x*a*a+x*b*b+a*y*y)/((x+a)*(x+a)+(y+b)*(y+b));
+	d = (x*x*b+a*a*y+y*y*b+y*b*b)/((x+a)*(x+a)+(y+b)*(y+b));
+	printf("(%.3f)+(%.3fi)", c, d);
 	return 0;
 }
